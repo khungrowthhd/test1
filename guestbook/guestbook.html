@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guestbook</title>
+</head>
+<body>
+  <h1>Sign my guestbook</h1>
+  <p>This page is being served by your own Node server.</p>
+
+  <form action="/sign" method="POST">
+    <label for="name">Your name:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="message">Your message:</label>
+    <input type="text" id="message" name="message">
+
+    <button type="submit">Sign it</button>
+  </form>
+
+  <h2>Messages</h2>
+  <ul>
+    <!-- MESSAGES -->
+  </ul>
+</body>
+</html>

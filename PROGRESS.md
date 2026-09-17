@@ -9,8 +9,9 @@ beyond the current roadmap and will be added as phases once we get there).
 
 ## Current phase
 
-Phase 10 — Next steps: custom domain, then a first look at a framework.
-**Not started.**
+Capstone — Database-backed guestbook (Node.js + SQLite). Core loop works end-to-end:
+form submits → server saves to database → page displays saved messages. **Working, could
+still use polish** (e.g. clearing the form after submit, styling, error handling).
 
 ## Completed
 
@@ -48,6 +49,22 @@ Phase 10 — Next steps: custom domain, then a first look at a framework.
   (using `gh auth setup-git` since this environment can't do an interactive browser login).
   Learned GitHub Pages only serves from repo root or a `/docs` folder, so renamed `site/` to
   `docs/` with `git mv` and enabled Pages via `gh api`. **Site is now live.**
+- Capstone (backend): new `guestbook/` folder, separate from `docs/` (the live static site).
+  Learned Node.js runs JS outside the browser (`node file.js`), and that a running server
+  must be manually restarted (Ctrl+C, then rerun) to pick up code changes — unlike static
+  HTML/CSS which the browser just re-reads on refresh. Built a plain Node server with the
+  built-in `http` module (`http.createServer`, `request`/`response`, `.listen(port)`,
+  `localhost`). Served real HTML with the `fs` module (`fs.readFileSync`). Added an HTML
+  `<form method="POST">`, learned GET vs POST, and that `<input name="...">` is the key
+  used when reading submitted data server-side. Learned basic routing (checking
+  `request.method` / `request.url`) and reading a POST body via `request.on("data"/"end")`,
+  then parsing it with `URLSearchParams`. Used the built-in `node:sqlite` module (no npm
+  install needed) to create a database file (`guestbook.db`) and a `messages` table via raw
+  SQL (`CREATE TABLE`), insert rows with a prepared statement (`db.prepare(...).run(...)`,
+  `?` placeholders to avoid SQL injection), and query all rows (`SELECT * FROM messages`,
+  `.all()`). Wrote a `renderPage()` function that reads the HTML file, builds an `<li>` per
+  row, and swaps it into an `<!-- MESSAGES --> ` marker via `.replace()`. End-to-end loop
+  confirmed working: submitted messages persist and show up after a server restart.
 
 ## Reference
 
@@ -59,12 +76,16 @@ Phase 10 — Next steps: custom domain, then a first look at a framework.
 
 ## Next up
 
-Phase 10: custom domain, then a first look at a framework. Also still owed: the
-database-backed capstone (guestbook/simple list) once a server-side language + SQL are
-introduced as new phases.
+Capstone polish: clear the form fields after a successful submit, add basic styling to
+`guestbook.html`, maybe show newest messages first. After that (or instead, if preferred):
+Phase 10 — custom domain, then a first look at a framework. Deploying the guestbook itself
+live (not just localhost) is a further step after that, needing a host that can run a
+Node process (unlike GitHub Pages, which only serves static files).
 
 ## Revisit
 
 - `flex` vs `grid`: when each one applies, and that leftover properties from one (e.g.
   `flex: 1` on `.card`) are silently ignored once the container switches to the other.
-- _(anything else found confusing — nothing new yet)_
+- Initially confused why editing `server.js` didn't show up until restarting the server
+  (vs. HTML/CSS, which the browser just re-reads) — resolved once the "running process vs.
+  static file" distinction was explained.
