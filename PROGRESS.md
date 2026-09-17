@@ -9,7 +9,7 @@ beyond the current roadmap and will be added as phases once we get there).
 
 ## Current phase
 
-Phase 9 — Launch: git + GitHub, deploy to GitHub Pages or Netlify, get a real public URL.
+Phase 10 — Next steps: custom domain, then a first look at a framework.
 **Not started.**
 
 ## Completed
@@ -41,16 +41,27 @@ Phase 9 — Launch: git + GitHub, deploy to GitHub Pages or Netlify, get a real 
   moved together.
 - Phase 8: added `lang="en"`, `<meta name="description">`, `<meta charset="UTF-8">`, a
   Google Fonts web font (Poppins), and a visible `:focus` outline for keyboard navigation.
+- Phase 9: learned what a tech stack is (frontend/backend/database/hosting) and where a
+  static site fits. Ran `git init`, learned staging vs committing (`git add` / `git commit`),
+  added a `.gitignore` for `.DS_Store`, set git identity (name/email) for this repo, created
+  a GitHub repo and connected it as a `remote` named `origin`, pushed with `git push -u`
+  (using `gh auth setup-git` since this environment can't do an interactive browser login).
+  Learned GitHub Pages only serves from repo root or a `/docs` folder, so renamed `site/` to
+  `docs/` with `git mv` and enabled Pages via `gh api`. **Site is now live.**
 
 ## Reference
 
 - [Web Dev Journal](https://claude.ai/artifact/Tw4DcuQBMm3o93LzQieJFD) — a published
   artifact summarizing every phase and term learned so far (Phases 1-8), with a callout
   on the `const`-across-`<script>`-tags bug from Phase 6.
+- GitHub repo: https://github.com/khungrowthhd/test1
+- Live site: https://khungrowthhd.github.io/test1/
 
 ## Next up
 
-Phase 9: initialize git, push to GitHub, deploy via GitHub Pages or Netlify.
+Phase 10: custom domain, then a first look at a framework. Also still owed: the
+database-backed capstone (guestbook/simple list) once a server-side language + SQL are
+introduced as new phases.
 
 ## Revisit
 
