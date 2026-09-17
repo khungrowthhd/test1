@@ -10,8 +10,9 @@ beyond the current roadmap and will be added as phases once we get there).
 ## Current phase
 
 Capstone — Database-backed guestbook (Node.js + SQLite). Core loop works end-to-end:
-form submits → server saves to database → page displays saved messages. **Working, could
-still use polish** (e.g. clearing the form after submit, styling, error handling).
+form submits → server saves to database → redirects → page displays saved messages,
+form cleared, no resubmit-on-refresh issue. **Working well.** Optional polish remaining:
+styling, newest-first ordering, basic validation (e.g. empty name/message).
 
 ## Completed
 
@@ -64,7 +65,12 @@ still use polish** (e.g. clearing the form after submit, styling, error handling
   `?` placeholders to avoid SQL injection), and query all rows (`SELECT * FROM messages`,
   `.all()`). Wrote a `renderPage()` function that reads the HTML file, builds an `<li>` per
   row, and swaps it into an `<!-- MESSAGES --> ` marker via `.replace()`. End-to-end loop
-  confirmed working: submitted messages persist and show up after a server restart.
+  confirmed working: submitted messages persist and show up after a server restart. Then
+  fixed the "resubmit form?" problem using the POST-Redirect-GET pattern: after saving,
+  respond with `response.statusCode = 303` and a `Location` header instead of sending the
+  page directly — learned HTTP status codes are just numbers describing what happened
+  (`200` = success, `303` = "go elsewhere instead"), confirmed via the address bar going
+  back to `/` and refresh no longer prompting to resubmit.
 
 ## Reference
 

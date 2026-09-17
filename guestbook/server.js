@@ -31,8 +31,9 @@ const server = http.createServer((request, response) => {
       const insert = db.prepare("INSERT INTO messages (name, message) VALUES (?, ?)");
       insert.run(name, message);
 
-      response.setHeader("Content-Type", "text/html");
-      response.end(renderPage());
+      response.statusCode = 303;
+      response.setHeader("Location", "/");
+      response.end();
     });
   } else {
     response.setHeader("Content-Type", "text/html");
