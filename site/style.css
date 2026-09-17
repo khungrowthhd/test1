@@ -1,0 +1,146 @@
+/* ---- reset-ish basics ---- */
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+/* ---- accessibility: visible focus for keyboard users ---- */
+a:focus,
+button:focus,
+input:focus {
+  outline: 3px solid darkslateblue;
+  outline-offset: 2px;
+}
+
+/* ---- header / nav bar ---- */
+header {
+  background-color: darkslateblue;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+nav .logo {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---- hero section ---- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 30px;
+  background-color: #f4f2fb;
+}
+
+.hero img {
+  border-radius: 50%;
+}
+
+.controls-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.button-group button {
+  width: 100px;
+  background-color: darkslateblue;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 0.85em;
+}
+
+#name-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.button-group button:hover {
+  background-color: mediumslateblue;
+}
+
+/* ---- generic section spacing ---- */
+section, footer {
+  padding: 30px;
+}
+
+/* ---- skills list ---- */
+.skills-list {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  background-color: darkslateblue;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+/* ---- project cards ---- */
+.card-list {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.card-featured {
+  border-color: darkslateblue;
+  background-color: #f4f2fb;
+}
+
+/* ---- footer ---- */
+footer {
+  background-color: #eee;
+  text-align: center;
+}
+
+/* ---- responsive: narrow (phone-width) screens ---- */
+@media (max-width: 600px) {
+  .card-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}

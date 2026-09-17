@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cole — My Site</title>
+    <meta name="description" content="Cole's personal site — a beginner web developer's first project.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <span class="logo">Cole</span>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <img src="https://picsum.photos/200" alt="A placeholder profile photo">
+      <div>
+        <h1>Hi, I'm Cole.</h1>
+        <p>I'm learning to build websites from scratch — this page is one of my first ones.</p>
+        <div class="controls-row">
+          <div class="button-group">
+            <button id="hi-button">Say hi</button>
+            <button id="love-button">Say love</button>
+          </div>
+          <input id="name-input" type="text" placeholder="Type your name">
+        </div>
+        <p id="message"></p>
+        <button id="greet-button">Greet me</button>
+        <p id="greet-message"></p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="card-list">
+        <div class="card">
+          <h3>My First Page</h3>
+          <p>The very first HTML file I wrote.</p>
+        </div>
+        <div class="card card-featured">
+          <h3>This Site</h3>
+          <p>The page you're looking at right now.</p>
+        </div>
+        <div class="card">
+          <h3>Next Project</h3>
+          <p>Not started yet.</p>
+        </div>
+        <div class="card">
+          <h3>Test</h3>
+          <p>test</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Want to reach me? <a href="contact.html">Get in touch</a>.</p>
+    </footer>
+
+    <script>
+      const hiButton = document.getElementById("hi-button");
+      const hiMessage = document.getElementById("message");
+
+      hiButton.addEventListener("click", function () {
+        hiMessage.textContent = "Hi there! You clicked the button.";
+      });
+
+      const loveButton = document.getElementById("love-button");
+      const loveMessage = document.getElementById("message");
+
+      loveButton.addEventListener("click", function () {
+        loveMessage.textContent = "I love you";
+      });
+
+      const nameInput = document.getElementById("name-input");
+      const greetButton = document.getElementById("greet-button");
+      const greetMessage = document.getElementById("greet-message");
+
+      greetButton.addEventListener("click", function () {
+        greetMessage.textContent = "Nice to meet you, " + nameInput.value + "!";
+      });
+    </script>
+
+  </body>
+</html>
